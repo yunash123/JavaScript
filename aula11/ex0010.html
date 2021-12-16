@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+        Velocidade maxima da via : <input type="number" name="txtmxvel" id="txtmxvel">
+        <input type="button" value="OK" onclick="ative()"> <br></br>
+       Velocidade do Carro: <input type="number" name="txtvel" id="txtvel">Km/h 
+       <input type="button" value="Verificar" onclick="calcular()">
+       <div id="res"></div>
+    <script>
+    function ative() {
+
+        var vmx = window.document.getElementById('txtmxvel')
+        var velocidade_maxima = Number(vmx.value)
+
+        function calcular(){
+    var txtv = window.document.getElementById('txtvel')
+    var res = window.document.getElementById('res')
+    var vel = Number(txtv.value)
+    res.innerHTML = `Sua velocidade atual é de ${vel}Km/h`
+            if (vel > velocidade_maxima) {
+                res.innerHTML += ', voce foi <string>MULTADO!</string>'
+            } else {
+                res.innerHTML += ' você esta dentro do limite da vocidade'
+            }
+    res.innerHTML += `. Dirija sempre com o cinto de segurança`
+        }
+    }
+    </script>
+</body>
+</html>
